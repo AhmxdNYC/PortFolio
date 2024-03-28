@@ -27,19 +27,19 @@ const ParticlesBackground = () => {
       fpsLimit: 240,
       interactivity: {
         events: {
-          // onClick: {
-          //   enable: true,
-          //   mode: "push",
-          // },
+          onClick: {
+            enable: true,
+            mode: "push",
+          },
           onHover: {
             enable: true,
             mode: "repulse",
           },
         },
         modes: {
-          // push: {
-          //   quantity: 4, // Adjust if you want more particles added on click
-          // },
+          push: {
+            quantity: 4, // Adjust if you want more particles added on click
+          },
           repulse: {
             distance: 250, // Increased distance for repulse to make it interact further away
             duration: 0.4,
@@ -72,7 +72,7 @@ const ParticlesBackground = () => {
             enable: true,
             area: 1500, // Increased area for a slower build-up of particles
           },
-          value: 130, // Increased number of particles for a fuller look gradually
+          value: 200, // Increased number of particles for a fuller look gradually
         },
         opacity: {
           value: 0.5,
@@ -94,11 +94,12 @@ const ParticlesBackground = () => {
       id="tsparticles"
       options={options}
       style={{
-        position: "",
+        display: "",
+        position: "absolute",
         top: 0,
         left: 0,
-        width: "",
-        height: "",
+        width: "100%",
+        height: "100%",
         overflow: "",
       }}
     />
