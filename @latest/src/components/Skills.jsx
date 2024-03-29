@@ -60,7 +60,7 @@ const Skills = forwardRef((props, ref) => {
                 className="w-full h-full object-contain scale-75"
                 src={
                   theme === "dark"
-                    ? "./coming soon.webp"
+                    ? "./coming soon.png"
                     : "./coming soon rev.png"
                 }
                 alt="Vite logo"

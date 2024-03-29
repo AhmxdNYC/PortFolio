@@ -76,7 +76,7 @@ const ScrollProgressIndicator = ({ skillsRef, projectsRef }) => {
     left: "-1px", // Adjust based on the width of your track to center the indicator
     height: "20px",
     width: "6px", // Match the track's width
-    backgroundColor: "yellow",
+    backgroundColor: theme === "dark" ? "yellow" : "black",
     borderRadius: "3px", // Apply rounding here as well to match the track's appearance
     transition: "",
   };

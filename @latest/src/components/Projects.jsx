@@ -53,7 +53,7 @@ const Projects = forwardRef((props, ref) => {
               />
             </a>
 
-            {/* Vite */}
+            {/* PortFolio */}
             <a
               href=""
               target="_blank"
@@ -67,41 +67,41 @@ const Projects = forwardRef((props, ref) => {
               />
             </a>
 
-            {/* Git */}
+            {/* Recipe Wizard */}
             <a
-              href="https://git-scm.com/"
+              href="https://github.com/RecipeWizardTeam/Recipe-Wizard"
               target="_blank"
               className="hover:scale-[1.05] transition-all duration-300 w-1/4 pt-10 border border-[#2c2c2c] text-center h-[14rem] flex flex-col justify-center items-center rounded-md"
             >
-              <p className="font-bold text-lg ">Git</p>
+              <p className="font-bold text-lg ">Recipe Wizard</p>
               <img
                 className="w-full h-full object-contain scale-50"
-                src="./git.svg"
+                src="./RecipeWizard-modified.png"
                 alt="Git logo"
               />
             </a>
 
-            {/* Node.js */}
+            {/* Movies App */}
             <a
-              href="https://nodejs.org/en"
+              href="https://github.com/AhmxdNYC/Movies-Project-"
               target="_blank"
               className="hover:scale-[1.05] transition-all duration-300 w-1/4 pt-10 border border-[#2c2c2c] text-center h-[14rem] flex flex-col justify-center items-center rounded-md"
             >
-              <p className="font-bold text-lg ">Node.js</p>
+              <p className="font-bold text-lg ">Movies App</p>
               <img
-                className="w-full h-full object-contain scale-50"
-                src="./nodejs.svg"
+                className="w-full h-full object-contain scale-75"
+                src="./Movies-App.png"
                 alt="Node.js logo"
               />
             </a>
 
-            {/* GitHub */}
+            {/* Filler */}
             <a
               href="https://github.com/"
               target="_blank"
               className="hover:scale-[1.05] transition-all duration-300 w-1/4 pt-10 border border-[#2c2c2c] text-center h-[14rem] flex flex-col justify-center items-center overflow-hidden rounded-md"
             >
-              <p className="font-bold ">GitHub</p>
+              <p className="font-bold ">Filler</p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="64"
