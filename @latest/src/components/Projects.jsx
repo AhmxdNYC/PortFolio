@@ -1,56 +1,69 @@
 import React from "react";
 import { Element } from "react-scroll"; // For smooth scrolling and linking to the Projects section
-
-const Projects = () => {
+import { useTheme } from "./ModeContext";
+import { forwardRef } from "react";
+const Projects = forwardRef((props, ref) => {
+  const { theme } = useTheme();
   return (
-    <div className="bg-black w-full z-10 min-h-screen">
+    <div
+      ref={ref}
+      className={`${
+        theme === "dark" ? "bg-black text-white" : "bg-white text-black"
+      } w-full z-10 min-h-screen `}
+    >
       <div className="pt-20 ml-4">
         <Element name="projects">
-          <h2 className="text-white text-6xl mb-8 ml-[16rem]">Projects</h2>
+          <h2 className="text-yellow-500 text-6xl mb-8 ml-[16rem]">Projects</h2>
           {/* Projects Container */}
           <div
             data-name="Projects-container"
             className="flex flex-wrap w-[70rem] h-auto ml-auto gap-5"
           >
-            {/* Tailwind */}
+            {/* Info Trove */}
             <a
-              href="https://tailwindcss.com/"
+              href="https://github.com/InfoTrove/InfoTrove"
               target="_blank"
               className="hover:scale-[1.05] transition-all duration-300 w-1/4 pt-10 border border-[#2c2c2c] text-center h-[14rem] flex flex-col justify-center items-center rounded-md"
             >
-              <p className="font-bold text-lg text-white">Info Trove</p>
+              <p className="font-bold text-lg ">Info Trove</p>
               <img
                 className="w-full h-full object-contain scale-75"
-                src="./infoTroveRev.png"
+                src={
+                  theme === "dark" ? "./infoTroveRev.png" : "./infoTrove.png"
+                }
                 alt="Tailwind CSS logo"
               />
             </a>
 
-            {/* React */}
+            {/* Coming Soon */}
             <a
-              href="https://react.dev/"
+              href=""
               target="_blank"
               className="hover:scale-[1.05] transition-all duration-300 w-1/4 pt-10 border border-[#2c2c2c] text-center h-[14rem] flex flex-col justify-center items-center rounded-md"
             >
-              <p className="font-bold text-lg text-white">React</p>
+              <p className="font-bold text-lg ">Fe...</p>
               <img
-                className="w-full h-full object-contain scale-50"
-                src="./React-icon.svg.png"
+                className="w-full h-full object-contain scale-75"
+                src={
+                  theme === "dark"
+                    ? "./coming soon.png"
+                    : "./coming soon rev.png"
+                }
                 alt="React logo"
               />
             </a>
 
             {/* Vite */}
             <a
-              href="https://vitejs.dev/"
+              href=""
               target="_blank"
               className="hover:scale-[1.05] transition-all duration-300 w-1/4 pt-10 border border-[#2c2c2c] text-center h-[14rem] flex flex-col justify-center items-center rounded-md"
             >
-              <p className="font-bold text-lg text-white">Vite</p>
+              <p className="font-bold text-lg ">Portfolio</p>
               <img
-                className="w-full h-full object-contain scale-50"
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Vitejs-logo.svg/820px-Vitejs-logo.svg.png"
-                alt="Vite logo"
+                className="w-full h-full object-contain scale-90"
+                src={theme === "dark" ? "./Port.png" : "./Portrev.png"}
+                alt="React logo"
               />
             </a>
 
@@ -60,7 +73,7 @@ const Projects = () => {
               target="_blank"
               className="hover:scale-[1.05] transition-all duration-300 w-1/4 pt-10 border border-[#2c2c2c] text-center h-[14rem] flex flex-col justify-center items-center rounded-md"
             >
-              <p className="font-bold text-lg text-white">Git</p>
+              <p className="font-bold text-lg ">Git</p>
               <img
                 className="w-full h-full object-contain scale-50"
                 src="./git.svg"
@@ -74,7 +87,7 @@ const Projects = () => {
               target="_blank"
               className="hover:scale-[1.05] transition-all duration-300 w-1/4 pt-10 border border-[#2c2c2c] text-center h-[14rem] flex flex-col justify-center items-center rounded-md"
             >
-              <p className="font-bold text-lg text-white">Node.js</p>
+              <p className="font-bold text-lg ">Node.js</p>
               <img
                 className="w-full h-full object-contain scale-50"
                 src="./nodejs.svg"
@@ -88,14 +101,14 @@ const Projects = () => {
               target="_blank"
               className="hover:scale-[1.05] transition-all duration-300 w-1/4 pt-10 border border-[#2c2c2c] text-center h-[14rem] flex flex-col justify-center items-center overflow-hidden rounded-md"
             >
-              <p className="font-bold text-white">GitHub</p>
+              <p className="font-bold ">GitHub</p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="64"
                 height="64"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="white"
+                stroke={theme === "dark" ? "white" : "black"}
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -109,7 +122,7 @@ const Projects = () => {
       </div>
     </div>
   );
-};
+});
 
 // Export the Projects component
 export default Projects;

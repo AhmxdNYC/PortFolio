@@ -1,31 +1,45 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* props*/
+:root {
+  /* Dark theme */
+  --scrollbar-track-color: #2c2c2c;
+  --scrollbar-thumb-color: #939393;
+  --scrollbar-thumb-hover-color: #555;
+
+  /* Light theme */
+  --scrollbar-track-color-light: #dcdcdc;
+  --scrollbar-thumb-color-light: #a0a0a0;
+  --scrollbar-thumb-hover-color-light: #787878;
+}
+
 ::-webkit-scrollbar {
-  width: 14px; /* Adjust width of scrollbar */
+  width: 14px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #2c2c2c; /* Color of the tracking area */
-  border: 2px solid #3d3d3d;
+  background: var(--scrollbar-track-color);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #939393; /* Color of the scroll thumb */
-  border-radius: 10px; /* Rounded corners of the scroll thumb */
-  border: 4px solid #2c2c2c; /* Border color matching the track */
+  background: var(--scrollbar-thumb-color);
+  border-radius: 10px;
+  border: 3px solid transparent;
+  background-clip: content-box; /* This will make the border transparent and retain the thumb size */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Color of the scroll thumb on hover */
+  background: var(--scrollbar-thumb-hover-color);
+}
+/* text area scrollbar hidden */
+textarea::-webkit-scrollbar {
+  display: none; /* This hides the scrollbar */
 }
 
-::-webkit-scrollbar-thumb {
-  background: #939393; /* Color of the scroll thumb */
-  border-radius: 10px; /* Rounded corners of the scroll thumb */
-  border: 3px solid #2c2c2c; /* Border color matching the track */
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Color of the scroll thumb on hover */
+/* For IE, Edge, and Firefox */
+textarea {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }

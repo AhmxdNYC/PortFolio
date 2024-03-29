@@ -2,8 +2,9 @@
 import { useEffect, useState, useMemo } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
-
+import { useTheme } from "./ModeContext.jsx";
 const ParticlesBackground = () => {
+  const { theme } = useTheme();
   const [init, setInit] = useState(false);
 
   useEffect(() => {
@@ -21,7 +22,7 @@ const ParticlesBackground = () => {
     () => ({
       background: {
         color: {
-          value: "#000000", // Keeps the background color as black
+          value: theme === "dark" ? "#000000" : "#ffffff", // Keeps the background color as black
         },
       },
       fpsLimit: 240,
@@ -48,10 +49,10 @@ const ParticlesBackground = () => {
       },
       particles: {
         color: {
-          value: "#ffffff",
+          value: theme === "dark" ? "#ffffff" : "#000000",
         },
         links: {
-          color: "#ffffff",
+          color: theme === "dark" ? "#ffffff" : "#000000",
           distance: 200, // Increased distance for links to appear further away
           enable: true,
           opacity: 0.5,
@@ -86,23 +87,22 @@ const ParticlesBackground = () => {
       },
       detectRetina: true,
     }),
-    []
+    [theme]
   );
 
   return init ? (
     <Particles
-      id="tsparticles"
-      options={options}
-      style={{
-        display: "",
-        position: "absolute",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
-        overflow: "",
-      }}
-    />
+  key={theme} // Change key to force re-render
+  id="tsparticles"
+  options={options}
+  style={{
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+  }}
+/>
   ) : null;
 };
 
