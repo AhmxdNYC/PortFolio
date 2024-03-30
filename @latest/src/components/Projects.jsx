@@ -55,7 +55,7 @@ const Projects = forwardRef((props, ref) => {
 
             {/* PortFolio */}
             <a
-              href=""
+              href="https://github.com/AhmxdNYC/PortFolio"
               target="_blank"
               className="hover:scale-[1.05] transition-all duration-300 w-1/4 pt-10 border border-[#2c2c2c] text-center h-[14rem] flex flex-col justify-center items-center rounded-md"
             >
