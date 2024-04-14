@@ -4,8 +4,8 @@ import { useTheme } from "./ModeContext";
 import { useState } from "react";
 import { forwardRef } from "react";
 const Contact = forwardRef((props, ref) => {
-    const contact = props.Contact
-    console.log(contact)
+  const contact = props.Contact;
+  console.log(contact);
   const { theme } = useTheme();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -25,19 +25,18 @@ const Contact = forwardRef((props, ref) => {
       ref={ref}
       className={`${
         theme === "dark" ? "bg-black text-white" : "bg-white text-black"
-      } w-full z-10 min-h-screen `}
+      } z-10 min-h-screen w-full `}
     >
       <Element ref={contact} name="Contact">
-
-        <div className="pt-20 ml-4">
-          <h2 className="text-yellow-500 text-6xl mb-8 ml-[16rem]">Contact</h2>
+        <div className="ml-4 pt-20">
+          <h2 className="mb-8 ml-[16rem] text-6xl text-yellow-500">Contact</h2>
           {/* Contact Container */}
           <div data-name="Contact-container" className="">
             <form
               onSubmit={handleSubmit}
               className={`${
                 theme === "dark" ? "bg-black text-white" : "bg-white text-black"
-              } flex flex-col w-[70rem] h-auto ml-auto gap-3 `}
+              } ml-[auto] flex h-auto w-[70rem] flex-col gap-3 `}
               action="submit"
             >
               <label htmlFor="name-input">Name</label>
@@ -50,7 +49,7 @@ const Contact = forwardRef((props, ref) => {
                   theme === "dark"
                     ? "border border-[#2c2c2c] bg-black"
                     : "border border-[#dcdcdc]"
-                } w-[35rem] rounded-md min-h-[2rem] `}
+                } min-h-[2rem] w-[35rem] rounded-md `}
               />
               <label htmlFor="email-input" className="mt-5">
                 Email
@@ -64,7 +63,7 @@ const Contact = forwardRef((props, ref) => {
                   theme === "dark"
                     ? "border border-[#2c2c2c] bg-black"
                     : "border border-[#dcdcdc]"
-                } w-[35rem] rounded-md min-h-[2rem] `}
+                } min-h-[2rem] w-[35rem] rounded-md `}
               />
               <label htmlFor="message-input" className="mt-5">
                 Message
@@ -78,13 +77,13 @@ const Contact = forwardRef((props, ref) => {
                   theme === "dark"
                     ? "border border-[#2c2c2c] bg-black"
                     : "border border-[#dcdcdc]"
-                } w-[35rem] rounded-md min-h-[8rem] p-1`}
+                } min-h-[8rem] w-[35rem] rounded-md p-1`}
               >
                 Message
               </textarea>
               <button
                 type="submit"
-                className="mt-5 mr-auto bg-yellow-500 rounded-md font-bold p-2 text-md"
+                className="text-md mr-auto mt-5 rounded-md bg-yellow-500 p-2 font-bold"
               >
                 Submit
               </button>

@@ -61,7 +61,7 @@ const ScrollProgressIndicator = ({ skillsRef, projectsRef }) => {
     display: isTrackVisible ? "block" : "none",
     position: "fixed",
     top: trackStartFromTop,
-    left: "8.3rem",
+    left: "5.7rem",
     height: trackHeight,
     width: "6px", // Width of the track
     backgroundColor: "", // Use backgroundColor to fill the entire track

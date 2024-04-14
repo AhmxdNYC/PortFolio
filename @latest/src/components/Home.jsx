@@ -28,7 +28,7 @@ const Home = () => {
     <div
       className={`${
         theme === "dark" ? "bg-black text-white" : "bg-white text-black"
-      } flex flex-col overflow-hidden min-h-screen `}
+      } flex min-h-screen flex-col overflow-hidden `}
       ref={introRef}
     >
       {/* Particles and content section */}
@@ -43,9 +43,9 @@ const Home = () => {
 
           <div
             data-name="text-img-container"
-            className="flex w-full justify-between px-10 mt-[12rem]"
+            className="mt-[12rem] flex w-full justify-between px-10"
           >
-            <div className=" ml-[3rem] z-10">
+            <div className=" z-10 ml-[3rem]">
               <h1 className="text-6xl font-bold">Hello,</h1>
               <p className="text-6xl font-bold">
                 I'm <span className="text-yellow-500">Ahmad</span>
@@ -53,18 +53,18 @@ const Home = () => {
               <p className="text-6xl font-bold">Front End Software</p>
               <p className="text-6xl font-bold">Engineer</p>
               <button
-                className="bg-yellow-500 mt-12 text-3xl rounded-md p-2 mb-6 font-bold"
+                className="mb-6 mt-12 rounded-md bg-yellow-500 p-2 text-3xl font-bold"
                 onClick={() => scrollToSection(contactRef)}
               >
                 Contact
               </button>
 
-              <p className="mt-6 text-1xl w-[20rem] italic">
+              <p className="text-1xl mt-6 w-[20rem] italic">
                 My passion for software engineering lies in me to constantly
                 push my limits and seek a challenging career that fosters
                 continuous growth!
               </p>
-              <div className="flex flex-wrap justify-between w-[18rem] mt-12">
+              <div className="mt-12 flex w-[18rem] flex-wrap justify-between">
                 <button className=" rounded-md p-2 font-bold">Github</button>
                 <button className=" rounded-md p-2 font-bold">Linkedin</button>
                 <a
@@ -76,13 +76,16 @@ const Home = () => {
                 </a>
               </div>
             </div>
-            <div className="w-96 h-96 bg-yellow-500 border border-yellow-500 rounded-full overflow-hidden relative mr-[8rem] shadow-[0_0_8px_rgba(255,255,0,0.6)]">
+            <div className="relative mr-[8rem] h-96 w-96 overflow-hidden rounded-full border border-yellow-500 bg-yellow-500 shadow-[0_0_8px_rgba(255,255,0,0.6)]">
               <img
                 src="./MarcyFellows-2.jpg"
                 alt=""
                 className="absolute top-[-20%]"
               />
             </div>
+            <p className="absolute bottom-[12.5rem] right-[17.5rem] z-10">
+              Click Screen to pause
+            </p>
           </div>
         </div>
       </div>
