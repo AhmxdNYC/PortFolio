@@ -82,7 +82,7 @@ const Skills = forwardRef((props, ref) => {
         <div className="ml-4 pt-20">
           <h2 className="mb-8 ml-[16rem] text-6xl text-yellow-500">Skills</h2>
           {/* Skills Container */}
-          {/*  */}
+
           <div
             data-name="skills-container"
             className="ml-auto flex h-auto w-[70rem] flex-wrap gap-5"
