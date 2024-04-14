@@ -47,7 +47,7 @@ const Skills = forwardRef((props, ref) => {
     }
     lastScrollY = currentScrollY;
   };
-
+  //
   window.addEventListener("scroll", handleScroll);
 
   return (
