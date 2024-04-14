@@ -47,7 +47,7 @@ const Skills = forwardRef((props, ref) => {
     }
     lastScrollY = currentScrollY;
   };
-  //
+
   window.addEventListener("scroll", handleScroll);
 
   return (
@@ -199,3 +199,4 @@ const Skills = forwardRef((props, ref) => {
 
 // Export the Skills component
 export default Skills;
+//
