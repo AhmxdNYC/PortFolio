@@ -111,6 +111,7 @@ const Skills = forwardRef((props, ref) => {
             >
               <p className="text-lg font-bold ">React</p>
               {/* w-full h-full object-contain scale-50 */}
+              {/*  */}
               <img
                 className="h-full w-full scale-50 object-contain"
                 src="./React-icon.svg.png"
