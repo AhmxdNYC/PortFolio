@@ -2,7 +2,7 @@ import React from "react";
 import { Element } from "react-scroll"; // For smooth scrolling and linking to the Skills section
 import { useTheme } from "./ModeContext.jsx";
 import { forwardRef, useRef, useEffect } from "react";
-//
+////
 const Skills = forwardRef((props, ref) => {
   const { theme } = useTheme();
   const skillRef1 = useRef(null);
