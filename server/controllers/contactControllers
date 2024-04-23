@@ -1,0 +1,49 @@
+const Contact = require("../model/contact")
+console.log(Contact)
+// Get All (Read)
+const serveContacts = async (req, res) => {
+  const contactsList = await Contact.list()
+  res.send(contactsList)
+}
+
+// Get One (Read)
+const serveContact = async (req, res) => {
+  const { id } = req.params
+  const contact = await Contact.find(Number(id))
+
+  if (!contact) return res.status(404).send(`No contact with the id ${id}`)
+  res.send(contact)
+}
+
+// Create
+const createContact = async (req, res) => {
+  const { name, email, message } = req.body // Correctly extract all expected properties
+  const newContact = await Contact.create({ name, email, message }) // Pass an object with these properties
+  res.send(newContact)
+}
+
+// Update
+const updateContact = async (req, res) => {
+  const { contactName } = req.body
+  const { id } = req.params
+  const updatedContact = await Contact.editName(Number(id), contactName)
+  // sendStatus sends just the status with no message body
+  if (!updatedContact) return res.sendStatus(404)
+  res.send(updatedContact)
+}
+
+// Delete
+const deleteContact = async (req, res) => {
+  const { id } = req.params
+  const didDelete = await Contact.delete(Number(id))
+  const statusCode = didDelete ? 204 : 404
+  res.sendStatus(statusCode)
+}
+
+module.exports = {
+  serveContacts,
+  serveContact,
+  createContact,
+  updateContact,
+  deleteContact,
+}
