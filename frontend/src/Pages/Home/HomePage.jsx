@@ -1,11 +1,11 @@
-import ParticlesBackground from "./ParticlesBackground.jsx";
-import Navbar from "./Navbar.jsx";
-import Skills from "./Skills.jsx";
+import ParticlesBackground from "../../components/ParticlesBackground.jsx";
+import Navbar from "../../components/Navbar.jsx";
+import Skills from "../../components/Skills.jsx";
 import { useRef } from "react";
-import Projects from "./Projects.jsx";
-import Contact from "./Contact.jsx";
-import { useTheme } from "./ModeContext.jsx";
-import ScrollProgressIndicator from "./CustomScroll.jsx";
+import Projects from "../../components/Projects.jsx";
+import Contact from "../../components/Contact.jsx";
+import { useTheme } from "../../components/ModeContext.jsx";
+import ScrollProgressIndicator from "../../components/CustomScroll.jsx";
 const Home = () => {
   const { theme } = useTheme();
   const introRef = useRef(null);
@@ -91,16 +91,15 @@ const Home = () => {
           theme === "dark" ? "bg-black text-white" : "bg-white text-black"
         } z-10 h-[8rem]`}
       ></div>
-      {/* Other Sections */}
-      {/* <Experience /> */}
-
       <Skills ref={skillsRef} />
       <Projects ref={projectsRef} />
       <ScrollProgressIndicator
         skillsRef={skillsRef}
         projectsRef={projectsRef}
+        // about inside contacts to not do scroll calculations
         contactsRef={contactRef}
       />
+
       <Contact ref={contactRef} />
     </div>
   );

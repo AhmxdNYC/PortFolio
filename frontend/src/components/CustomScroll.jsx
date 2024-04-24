@@ -40,7 +40,7 @@ const ScrollProgressIndicator = ({ skillsRef, projectsRef }) => {
 
       // Adjust the progress calculation to prevent the indicator from exceeding the track height
       // Subtract the height of the indicator from the totalHeight to ensure it doesn't go past the track
-      let progress = (adjustedScroll / (totalHeight + 57)) * 100; // Assuming the indicator's height is 20px
+      let progress = (adjustedScroll / (totalHeight + 57)) * 71; // Assuming the indicator's height is 20px
 
       setProgress(Math.min(progress, 100));
     } else {

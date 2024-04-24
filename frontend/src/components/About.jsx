@@ -1,6 +1,6 @@
 import { Element } from "react-scroll";
 import { useTheme } from "./ModeContext";
-const Experience = () => {
+const About = () => {
   const { theme } = useTheme();
   return (
     <div
@@ -8,14 +8,12 @@ const Experience = () => {
         theme === "dark" ? "bg-black text-white" : "bg-white text-black"
       } z-10 min-h-screen w-full `}
     >
-      <Element name="experience">
+      <Element name="About">
         <div className="ml-4 pt-20">
-          <h2 className="mb-8 ml-[16rem] text-6xl text-yellow-500">
-            Experience
-          </h2>
-          {/* Experience Container */}
+          <h2 className="mb-8 ml-[16rem] text-6xl text-yellow-500">About</h2>
+          {/* About Container */}
           <div
-            data-name="Experience-container"
+            data-name="About-container"
             className="ml-auto flex h-auto w-[70rem] flex-col gap-5 "
           >
             <li className="list-none">Place</li>
@@ -30,4 +28,4 @@ const Experience = () => {
   );
 };
 
-export default Experience;
+export default About;

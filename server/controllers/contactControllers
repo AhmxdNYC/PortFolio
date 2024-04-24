@@ -1,5 +1,6 @@
-const Contact = require("../model/contact")
-console.log(Contact)
+const Contact = require("../model/Contact")
+const { sendContactEmail } = require("../mail/mailer")
+
 // Get All (Read)
 const serveContacts = async (req, res) => {
   const contactsList = await Contact.list()
@@ -17,9 +18,21 @@ const serveContact = async (req, res) => {
 
 // Create
 const createContact = async (req, res) => {
-  const { name, email, message } = req.body // Correctly extract all expected properties
-  const newContact = await Contact.create({ name, email, message }) // Pass an object with these properties
-  res.send(newContact)
+  const { name, email, message } = req.body
+  try {
+    const newContact = await Contact.create({ name, email, message })
+    if (!newContact) {
+      return res.status(500).send("Failed to create contact")
+    }
+
+    // Attempt to send an email
+    await sendContactEmail({ name, email, message })
+    res.status(201).send(newContact)
+  } catch (error) {
+    console.error("Failed to create contact or send email:", error)
+    // Decide whether to send a generic error message or specify the error
+    res.status(500).send("Failed to process your request")
+  }
 }
 
 // Update

@@ -5,9 +5,9 @@ import { loadSlim } from "@tsparticles/slim";
 import { useTheme } from "./ModeContext.jsx";
 const ParticlesBackground = () => {
   const { theme } = useTheme();
-  const particlesInstanceRef = useRef(null); // To hold the particles instance for control
+  const particlesInstanceRef = useRef(null); // reference to particle instance
 
-  // Original initialization logic for particles
+  // initialize particles engine
   useEffect(() => {
     initParticlesEngine(async (engine) => {
       await loadSlim(engine);
@@ -18,29 +18,6 @@ const ParticlesBackground = () => {
     // Store the instance for later control
     particlesInstanceRef.current = instance;
   }, []);
-
-  // Intersection Observer to pause/play based on visibility
-  // useEffect(() => {
-  //   const observer = new IntersectionObserver(
-  //     (entries) => {
-  //       entries.forEach((entry) => {
-  //         if (entry.isIntersecting) {
-  //           console.log("Particles are visible");
-  //           particlesInstanceRef.current?.play();
-  //         } else {
-  //           console.log("Particles are not visible");
-  //           particlesInstanceRef.current?.pause();
-  //         }
-  //       });
-  //     },
-  //     { threshold: 0.1 }
-  //   );
-
-  //   const particlesEl = document.getElementById("tsparticles");
-  //   if (particlesEl) observer.observe(particlesEl);
-
-  //   return () => observer.disconnect();
-  // }, []);
 
   // Listen for clicks to pause/play
   useEffect(() => {
@@ -76,10 +53,10 @@ const ParticlesBackground = () => {
         },
         modes: {
           push: {
-            quantity: 4, // Adjust if you want more particles added on click
+            quantity: 4,
           },
           repulse: {
-            distance: 250, // Increased distance for repulse to make it interact further away
+            distance: 250,
             duration: 0.4,
           },
         },

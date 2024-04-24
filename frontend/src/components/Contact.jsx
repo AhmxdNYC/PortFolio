@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { Element } from "react-scroll";
+import About from "./About";
 import { useTheme } from "./ModeContext";
 import { useState } from "react";
 import { forwardRef } from "react";
@@ -36,7 +37,7 @@ const Contact = forwardRef((props, ref) => {
 
       if (response.ok) {
         console.log("Message sent successfully");
-        // Optionally clear the form or handle next steps
+
         setName("");
         setEmail("");
         setMessage("");
@@ -52,8 +53,10 @@ const Contact = forwardRef((props, ref) => {
       ref={ref}
       className={`${
         theme === "dark" ? "bg-black text-white" : "bg-white text-black"
-      } z-10 min-h-screen w-full `}
+      } z-10 min-h-screen w-full pb-[5rem] `}
     >
+      <About />
+
       <Element ref={contact} name="Contact">
         <div className="ml-4 pt-20">
           <h2 className="mb-8 ml-[16rem] text-6xl text-yellow-500">Contact</h2>
@@ -71,6 +74,7 @@ const Contact = forwardRef((props, ref) => {
                 onChange={(e) => setName(e.target.value)}
                 type="text"
                 name=""
+                value={name}
                 id="name-input"
                 className={`${
                   theme === "dark"
@@ -85,6 +89,7 @@ const Contact = forwardRef((props, ref) => {
                 onChange={(e) => setEmail(e.target.value)}
                 type="text"
                 name=""
+                value={email}
                 id="email-input"
                 className={`${
                   theme === "dark"

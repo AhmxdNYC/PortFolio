@@ -1,12 +1,19 @@
-// App.jsx
 import React from "react";
-import Home from "./components/Home"; // Adjust the import path as necessary
+import Home from "./Pages/Home/HomePage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Projects from "./components/Projects";
+import ProjectDetail from "./Pages/Project/ProjectDetails";
 
 function App() {
   return (
     <div className="App">
-      <Home />
-      {/* You can add more routes or components here if using React Router or similar */}
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/:projectId" element={<ProjectDetail />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

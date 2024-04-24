@@ -1,8 +1,8 @@
-import { Element } from "react-scroll"; // For smooth scrolling and linking to the Projects section
+import { Element } from "react-scroll";
 import { useTheme } from "./ModeContext";
 import { forwardRef } from "react";
 import { useRef, useEffect } from "react";
-
+import { Link } from "react-router-dom";
 const Projects = forwardRef((props, ref) => {
   const { theme } = useTheme();
   const projectRef1 = useRef(null);
@@ -10,7 +10,6 @@ const Projects = forwardRef((props, ref) => {
   const projectRef3 = useRef(null);
   const projectRef4 = useRef(null);
   const projectRef5 = useRef(null);
-  // Add more as needed
 
   Projects.displayName = "Projects";
   useEffect(() => {
@@ -95,17 +94,13 @@ const Projects = forwardRef((props, ref) => {
               data-name="main"
               className="  hidden-display flex w-1/4 flex-col justify-center overflow-hidden rounded-md border border-[#2c2c2c] transition-all duration-300 hover:scale-[1.05]"
             >
-              <a
-                href="https://github.com/InfoTrove/InfoTrove"
-                target="_blank"
-                rel="noreferrer"
-              >
+              <Link to="/projects/infotrove">
                 <img
                   className=" h-full w-full "
                   src="./infoTroveWeb.png"
                   alt="Node.js logo"
                 />
-              </a>
+              </Link>
               <div
                 data-name="techs"
                 className="flex flex-wrap gap-4 border-t-4 border-[#3a3939] p-4"
@@ -246,7 +241,7 @@ const Projects = forwardRef((props, ref) => {
               data-name="main"
               className="hidden-display flex w-1/4 flex-col justify-center overflow-hidden rounded-md border border-[#2c2c2c] transition-all duration-300 hover:scale-[1.05]"
             >
-              <a href="https://github.com/AhmxdNYC/PortFolio" target="_blank">
+              <Link to="/projects/portfolio">
                 <img
                   className=" h-full w-full "
                   src={
@@ -256,7 +251,7 @@ const Projects = forwardRef((props, ref) => {
                   }
                   alt="Node.js logo"
                 />
-              </a>
+              </Link>
               <div
                 data-name="techs"
                 className="flex flex-wrap gap-4 border-t-4 border-[#3a3939] p-4"
@@ -322,16 +317,13 @@ const Projects = forwardRef((props, ref) => {
               data-name="main"
               className="hidden-display flex w-1/4 flex-col justify-center overflow-hidden rounded-md border border-[#2c2c2c] transition-all duration-300 hover:scale-[1.05]"
             >
-              <a
-                href="https://github.com/RecipeWizardTeam/Recipe-Wizard"
-                target="_blank"
-              >
+              <Link to="/projects/Recipe Wizard">
                 <img
                   className=" h-full w-full "
                   src="./recipeWizardWeb.png"
                   alt="Node.js logo"
                 />
-              </a>
+              </Link>
               <div
                 data-name="techs"
                 className="flex flex-wrap gap-4 border-t-4 border-[#3a3939] p-4"
@@ -397,16 +389,13 @@ const Projects = forwardRef((props, ref) => {
               data-name="main"
               className="hidden-display flex w-1/4 flex-col justify-center overflow-hidden rounded-md border border-[#2c2c2c] transition-all duration-300 hover:scale-[1.05]"
             >
-              <a
-                href="https://github.com/AhmxdNYC/Movies-Project-"
-                target="_blank"
-              >
+              <Link to="/projects/movies">
                 <img
                   className=" h-full w-full "
                   src="./movies.png"
                   alt="Node.js logo"
                 />
-              </a>
+              </Link>
               <div
                 data-name="techs"
                 className="flex flex-wrap gap-4 border-t-4 border-[#3a3939] p-4"
@@ -478,6 +467,7 @@ const Projects = forwardRef((props, ref) => {
               <a
                 href="https://github.com/AhmxdNYC/Movies-Project-"
                 target="_blank"
+                rel="noreferrer"
               >
                 <img
                   className=" h-full w-full "

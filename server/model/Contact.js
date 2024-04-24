@@ -1,24 +1,19 @@
 const knex = require("./knex")
 
-/* 
-This class provides an interface for managing Fellow data. 
-Instances of this class can't do much really. They just store data.
-
-The class itself provides static methods for CRUD actions on 
-the collection of fellows.
-*/
 class Contact {
   static async create({ name, email, message }) {
-    const { rows } = await knex.raw(
-      `
-      INSERT INTO contacts (name, email, message)
-      VALUES (?, ?, ?)
-      RETURNING *
-    `,
-      [name, email, message] // Ensure these values are passed to the method
-    )
-
-    return rows[0]
+    try {
+      const insertedRows = await knex("contacts")
+        .insert({
+          name,
+          email,
+          message,
+        })
+        .returning("*")
+      return insertedRows[0]
+    } catch (error) {
+      throw new Error(`Failed to create contact: ${error}`)
+    }
   }
 
   static async list() {
