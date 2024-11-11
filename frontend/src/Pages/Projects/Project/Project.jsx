@@ -15,7 +15,7 @@ const Project = forwardRef(({ project, theme, className }, ref) => (
   >
     {/* "New!" Badge */}
     {project.isNew && (
-      <div className="absolute z-10 px-3 py-1 text-xs font-bold text-black bg-yellow-400 rounded-bl-lg shadow-md left-2 top-2">
+      <div className="absolute left-2 top-2 z-10 rounded-bl-lg bg-yellow-400 px-3 py-1 text-xs font-bold text-black shadow-md">
         New!
       </div>
     )}
@@ -27,7 +27,7 @@ const Project = forwardRef(({ project, theme, className }, ref) => (
       style={{ border: "4px solid #333" }}
     >
       <img
-        className="object-contain w-full h-48 transition-transform duration-300 hover:scale-105"
+        className="h-48 w-full object-contain transition-transform duration-300 hover:scale-105"
         src={
           typeof project.imgSrc === "function"
             ? project.imgSrc(theme)
@@ -38,10 +38,10 @@ const Project = forwardRef(({ project, theme, className }, ref) => (
     </Link>
 
     {/* Project Info with Comic-Style Text */}
-    <div className="p-3 space-y-2 bg-white border-t-4 border-black rounded-b-lg">
+    <div className="space-y-2 rounded-b-lg border-t-4 border-black bg-white p-3">
       {/* Title and Logo */}
       <div className="flex items-center justify-center space-x-2">
-        <h3 className="text-2xl font-extrabold text-center text-gray-800">
+        <h3 className="text-center text-2xl font-extrabold text-gray-800">
           {project.name}
         </h3>
         <img
@@ -51,21 +51,21 @@ const Project = forwardRef(({ project, theme, className }, ref) => (
               : project.logoImgSrc
           }
           alt={`${project.name} logo`}
-          className="object-contain w-8 h-8"
+          className="h-8 w-8 object-contain"
         />
       </div>
 
       {/* Description */}
-      <p className="text-sm italic font-semibold text-center text-gray-600">
+      <p className="text-center text-sm font-semibold italic text-gray-600">
         {project.description}
       </p>
 
       {/* Tech Stack with Comic Bubble Styling */}
-      <div className="flex flex-wrap justify-center gap-2 pt-3 mb-3 border-t-2 border-gray-500 border-dashed">
+      <div className="mb-3 flex flex-wrap justify-center gap-2 border-t-2 border-dashed border-gray-500 pt-3">
         {project.techs.map((tech, index) => (
           <span
             key={index}
-            className="px-3 py-1 text-xs font-semibold text-white bg-black rounded-full shadow-lg"
+            className="rounded-full bg-black px-3 py-1 text-xs font-semibold text-white shadow-lg"
           >
             {tech}
           </span>
@@ -76,13 +76,13 @@ const Project = forwardRef(({ project, theme, className }, ref) => (
       <div className="flex items-center justify-center space-x-3">
         <Link
           to={project.demoLink}
-          className="px-4 py-2 text-xs font-semibold text-white bg-blue-600 rounded-md hover:bg-blue-500"
+          className="rounded-md bg-blue-600 px-4 py-2 text-xs font-semibold text-white hover:bg-blue-500"
         >
           Demo
         </Link>
         <Link
           to={project.repoHref}
-          className="px-4 py-2 text-xs font-semibold text-white bg-gray-800 rounded-md hover:bg-gray-700"
+          className="rounded-md bg-gray-800 px-4 py-2 text-xs font-semibold text-white hover:bg-gray-700"
         >
           Repo
         </Link>

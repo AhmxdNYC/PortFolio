@@ -1,4 +1,3 @@
-// Projects.js
 import { Element } from "react-scroll";
 import { useTheme } from "../../components/ModeContext";
 import { forwardRef, useRef, useEffect } from "react";
@@ -11,16 +10,13 @@ const Projects = forwardRef((props, ref) => {
     useRef(null),
   );
 
-  Projects.displayName = "Projects";
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-          } else {
-            entry.target.classList.remove("show");
+            entry.target.classList.add("show-project");
+            observer.unobserve(entry.target); // Trigger animation once
           }
         });
       },
@@ -28,19 +24,11 @@ const Projects = forwardRef((props, ref) => {
     );
 
     projectRefs.forEach((ref) => {
-      if (ref.current) {
-        observer.observe(ref.current);
-      }
+      if (ref.current) observer.observe(ref.current);
     });
 
-    return () => {
-      projectRefs.forEach((ref) => {
-        if (ref.current) {
-          observer.unobserve(ref.current);
-        }
-      });
-    };
-  }, [projectRefs]);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div
@@ -60,12 +48,12 @@ const Projects = forwardRef((props, ref) => {
     >
       <style>
         {`
-          .hidden-display {
+          .hidden-display-project {
             opacity: 0;
             transform: translateY(20px);
             transition: all 0.8s ease;
           }
-          .show {
+          .show-project {
             opacity: 1;
             transform: translateY(0);
           }
@@ -78,6 +66,7 @@ const Projects = forwardRef((props, ref) => {
           }
         `}
       </style>
+
       <Element name="projects">
         <h2 className="mb-8 text-5xl font-extrabold text-center text-yellow-500 sm:text-5xl lg:text-6xl">
           Projects
@@ -89,9 +78,7 @@ const Projects = forwardRef((props, ref) => {
               ref={projectRefs[index]}
               project={project}
               theme={theme}
-              className={`project-panel ${
-                index % 2 === 0 ? "rotate-1" : "-rotate-1"
-              }`}
+              className="hidden-display-project"
             />
           ))}
         </div>
