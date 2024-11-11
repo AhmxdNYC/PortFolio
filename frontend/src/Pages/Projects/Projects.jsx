@@ -59,28 +59,11 @@ const Projects = forwardRef((props, ref) => {
           }
           .projects-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
             padding: 2rem;
             max-width: 1200px;
             margin: auto;
-          }
-          .project-panel:nth-child(odd) {
-            transform: rotate(-1deg) translateY(-10px);
-            background-color: ${theme === "dark" ? "#222" : "#f9f9f9"};
-          }
-          .project-panel:nth-child(even) {
-            transform: rotate(1deg) translateY(10px);
-            background-color: ${theme === "dark" ? "#333" : "#f0f0f0"};
-          }
-          .project-panel {
-            border: 3px solid ${theme === "dark" ? "#444" : "#ccc"};
-            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-          }
-          .project-panel:hover {
-            transform: scale(1.05) rotate(0deg);
-            box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.3);
           }
         `}
       </style>
