@@ -75,11 +75,13 @@ const Projects = forwardRef((props, ref) => {
         className="pt-20 pb-3 ml-4"
       >
         <Element name="projects">
-          <h2 className="mb-8 ml-[16rem] text-6xl text-yellow-500">Projects</h2>
+          <h2 className="mb-8 text-4xl font-bold text-center text-yellow-500 sm:text-5xl lg:text-6xl">
+            Projects
+          </h2>
           {/* Projects Container */}
           <div
             data-name="Projects-container"
-            className="ml-[12.3%] flex h-auto w-[85rem] flex-wrap gap-5"
+            className=" ml-[13%] flex h-auto w-[85rem] flex-wrap gap-5"
           >
             {projectsData.map((project, index) => (
               <Project

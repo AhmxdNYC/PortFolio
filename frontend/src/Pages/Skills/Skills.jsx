@@ -29,6 +29,7 @@ const Skills = forwardRef((props, ref) => {
       skillRefs.forEach((ref) => {
         if (ref.current) {
           observer.observe(ref.current);
+          ref.current.style.transition = "all 1.5s ease-in-out";
         }
       });
       // Update the lastScrollY value after setting observers
@@ -53,7 +54,7 @@ const Skills = forwardRef((props, ref) => {
           filter: blur(5px);
           opacity: 0;
           transform: translateX(-100%);
-          transition: all 1s;
+        transition: all 1s ease-in-out; /* Increased transition duration to 10 seconds */
         }
         .show {
           opacity: 1;
@@ -69,14 +70,14 @@ const Skills = forwardRef((props, ref) => {
       </style>
       <Element name="skills">
         <div className="px-4 pt-20">
-          <h2 className="mb-8 text-center text-4xl font-bold text-yellow-500 sm:text-5xl lg:text-6xl">
+          <h2 className="mb-8 text-4xl font-bold text-center text-yellow-500 sm:text-5xl lg:text-6xl">
             Skills
           </h2>
 
           {/* Skills Container */}
           <div
             data-name="skills-container"
-            className="mx-auto grid w-full max-w-screen-lg grid-cols-4 gap-5"
+            className="grid w-full max-w-screen-lg grid-cols-4 gap-5 mx-auto"
           >
             {skillsData.map((skill, index) => (
               <Skill
