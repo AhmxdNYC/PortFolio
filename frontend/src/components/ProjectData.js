@@ -5,6 +5,7 @@ const projectsData = [
     href: "/projects/infotrove",
     imgSrc: "./infoTroveWeb.png",
     imgAlt: "Info Trove",
+    isNew: true,
     techs: ["GIT", "API", "NodeJS", "CSS", "HTML5", "Test"],
     demoImgSrc: (theme) =>
       theme === "dark" ? "./Demo Dark.png" : "./Demo Light.png",

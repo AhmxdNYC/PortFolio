@@ -1,3 +1,4 @@
+// Projects.js
 import { Element } from "react-scroll";
 import { useTheme } from "../../components/ModeContext";
 import { forwardRef, useRef, useEffect } from "react";
@@ -44,7 +45,18 @@ const Projects = forwardRef((props, ref) => {
   return (
     <div
       ref={ref}
-      className={`${theme === "dark" ? "z-10 bg-black text-white" : "bg-white text-black"} w-full`}
+      className={`relative z-10 w-full ${
+        theme === "dark" ? "bg-black text-white" : "bg-white text-black"
+      }`}
+      style={{
+        backgroundImage: `url(${
+          theme === "dark"
+            ? "/path/to/dark-halftone-pattern.png"
+            : "/path/to/light-halftone-pattern.png"
+        })`,
+        backgroundSize: "cover",
+        padding: "1rem",
+      }}
     >
       <style>
         {`
@@ -60,15 +72,14 @@ const Projects = forwardRef((props, ref) => {
           .projects-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            padding: 2rem;
+            gap: 2rem;
             max-width: 1200px;
             margin: auto;
           }
         `}
       </style>
       <Element name="projects">
-        <h2 className="mb-8 text-4xl font-bold text-center text-yellow-500 sm:text-5xl lg:text-6xl">
+        <h2 className="mb-8 text-5xl font-extrabold text-center text-yellow-500 sm:text-5xl lg:text-6xl">
           Projects
         </h2>
         <div className="projects-container">
@@ -78,7 +89,9 @@ const Projects = forwardRef((props, ref) => {
               ref={projectRefs[index]}
               project={project}
               theme={theme}
-              className={`project-panel ${index % 2 === 0 ? "h-80" : "h-96"} ${index % 3 === 0 ? "col-span-2" : ""}`}
+              className={`project-panel ${
+                index % 2 === 0 ? "rotate-1" : "-rotate-1"
+              }`}
             />
           ))}
         </div>

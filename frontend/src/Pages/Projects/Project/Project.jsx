@@ -1,22 +1,33 @@
+// Project.js
 import React, { forwardRef } from "react";
 import { Link } from "react-router-dom";
 
 const Project = forwardRef(({ project, theme, className }, ref) => (
   <div
     ref={ref}
-    className={`${className} flex transform flex-col rounded-lg border-4 border-double border-gray-600 shadow-lg transition-transform duration-300 hover:scale-[1.03] hover:shadow-2xl`}
+    className={`${className} relative flex transform flex-col rounded-lg border-4 border-black p-4 shadow-lg transition-transform duration-300 hover:scale-105`}
     style={{
-      borderColor: theme === "dark" ? "#444" : "#aaa",
-      boxShadow: "4px 4px 0px rgba(0, 0, 0, 0.2)", // Manga-style shadow
+      borderColor: theme === "dark" ? "#333" : "#222",
+      background: theme === "dark" ? "#1a1a1a" : "#f4f4f4",
+      boxShadow: "5px 5px 0px rgba(0, 0, 0, 0.3)", // Manga-style shadow
+      transform: "skewY(-6deg)",
     }}
   >
-    {/* Project Image */}
+    {/* "New!" Badge */}
+    {project.isNew && (
+      <div className="absolute z-10 px-3 py-1 text-xs font-bold text-black bg-yellow-400 rounded-bl-lg shadow-md left-2 top-2">
+        New!
+      </div>
+    )}
+
+    {/* Project Image with Comic-Style Border */}
     <Link
       to={project.href}
-      className="relative w-full overflow-hidden rounded-t-md"
+      className="relative w-full overflow-hidden rounded-t-lg"
+      style={{ border: "4px solid #333" }}
     >
       <img
-        className="object-cover w-full h-64 transition-transform duration-300 hover:scale-105"
+        className="object-contain w-full h-48 transition-transform duration-300 hover:scale-105"
         src={
           typeof project.imgSrc === "function"
             ? project.imgSrc(theme)
@@ -26,28 +37,35 @@ const Project = forwardRef(({ project, theme, className }, ref) => (
       />
     </Link>
 
-    {/* Project Info Below Image with Manga Styling */}
-    <div
-      className="p-4 space-y-3 rounded-b-lg bg-neutral-800"
-      style={{
-        backgroundImage:
-          theme === "dark"
-            ? "url('/path/to/dark-dots.png')"
-            : "url('/path/to/light-dots.png')", // Manga halftone effect
-        backgroundSize: "10px 10px",
-      }}
-    >
-      <h3 className="text-xl font-semibold text-center text-gray-100">
-        {project.name}
-      </h3>
-      <p className="text-sm text-center text-gray-400">{project.description}</p>
+    {/* Project Info with Comic-Style Text */}
+    <div className="p-3 space-y-2 bg-white border-t-4 border-black rounded-b-lg">
+      {/* Title and Logo */}
+      <div className="flex items-center justify-center space-x-2">
+        <h3 className="text-2xl font-extrabold text-center text-gray-800">
+          {project.name}
+        </h3>
+        <img
+          src={
+            typeof project.logoImgSrc === "function"
+              ? project.logoImgSrc(theme)
+              : project.logoImgSrc
+          }
+          alt={`${project.name} logo`}
+          className="object-contain w-8 h-8"
+        />
+      </div>
 
-      {/* Tech Stack with Manga Bubbles */}
-      <div className="flex flex-wrap justify-center gap-2 pt-3 border-t-2 border-gray-700">
+      {/* Description */}
+      <p className="text-sm italic font-semibold text-center text-gray-600">
+        {project.description}
+      </p>
+
+      {/* Tech Stack with Comic Bubble Styling */}
+      <div className="flex flex-wrap justify-center gap-2 pt-3 mb-3 border-t-2 border-gray-500 border-dashed">
         {project.techs.map((tech, index) => (
           <span
             key={index}
-            className="px-2 py-1 text-xs font-semibold text-gray-200 bg-gray-700 rounded-full"
+            className="px-3 py-1 text-xs font-semibold text-white bg-black rounded-full shadow-lg"
           >
             {tech}
           </span>
@@ -55,16 +73,16 @@ const Project = forwardRef(({ project, theme, className }, ref) => (
       </div>
 
       {/* Action Buttons */}
-      <div className="flex items-center justify-around mt-4 space-x-2">
+      <div className="flex items-center justify-center space-x-3">
         <Link
           to={project.demoLink}
-          className="px-3 py-2 text-xs font-semibold text-white bg-gray-700 rounded-md hover:bg-gray-600"
+          className="px-4 py-2 text-xs font-semibold text-white bg-blue-600 rounded-md hover:bg-blue-500"
         >
           Demo
         </Link>
         <Link
-          to={project.repoLink}
-          className="px-3 py-2 text-xs font-semibold text-white bg-gray-700 rounded-md hover:bg-gray-600"
+          to={project.repoHref}
+          className="px-4 py-2 text-xs font-semibold text-white bg-gray-800 rounded-md hover:bg-gray-700"
         >
           Repo
         </Link>
