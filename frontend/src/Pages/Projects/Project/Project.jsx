@@ -4,15 +4,17 @@ import { Link } from "react-router-dom";
 const Project = forwardRef(({ project, theme, className }, ref) => (
   <div
     ref={ref}
-    className={`${className} flex transform flex-col rounded-lg border border-gray-700 bg-neutral-800 p-4 shadow-md transition-transform duration-300 hover:scale-[1.03] hover:shadow-lg`}
+    className={`${className} flex transform flex-col rounded-lg border p-4 shadow-md transition-transform duration-300`}
+    style={{
+      borderColor: theme === "dark" ? "#444" : "#ccc",
+    }}
   >
-    {/* Updated Image Container Height */}
     <Link
       to={project.href}
-      className="relative w-full overflow-hidden rounded-md h-72"
+      className="relative w-full overflow-hidden rounded-md h-80"
     >
       <img
-        className="object-cover w-full h-full transition-transform duration-300 hover:scale-110"
+        className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
         src={
           typeof project.imgSrc === "function"
             ? project.imgSrc(theme)
