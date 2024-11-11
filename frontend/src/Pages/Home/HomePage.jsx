@@ -23,33 +23,27 @@ const Home = () => {
     <div
       className={`${
         theme === "dark" ? "bg-black text-white" : "bg-white text-black"
-      } flex min-h-screen flex-col overflow-hidden `}
-      ref={introRef}
+      } flex min-h-screen flex-col overflow-hidden`}
     >
       {/* Particles and content section */}
-      <div
-        className="absolute overflow-hidden"
-        style={{ position: "relative", overflow: "hidden", height: "100vh" }}
-      >
-        <div className="">
-          <ParticlesBackground />
-        </div>
-        <div className="flex flex-col items-center">
+      <div className="relative h-screen mt-10 overflow-hidden lg:mt-0">
+        <ParticlesBackground />
+        <div className="flex flex-col items-center gap-4 sm:gap-6 md:gap-8 lg:gap-10">
           <Navbar scrollToSection={scrollToSection} introRef={introRef} />
 
           {/* Main content container */}
-          <div className="mt-24 flex w-full flex-col justify-between px-4 sm:mt-12 sm:px-8 md:mt-16 lg:mt-[10rem] lg:flex-row lg:px-10">
-            <div className="z-10 ml-0 text-center lg:ml-[3rem] lg:mr-[3rem] lg:text-left">
-              <h1 className="text-xl font-bold sm:text-5xl md:text-6xl lg:text-6xl">
+          <div className="flex flex-col justify-between w-full gap-4 px-4 mt-16 sm:mt-20 sm:gap-6 sm:px-8 md:mt-24 md:gap-8 lg:mt-32 lg:flex-row lg:gap-10 lg:px-10">
+            <div className="z-10 ml-0 text-center md:ml-8 md:mr-8 md:text-left lg:ml-12 lg:mr-12 lg:text-left">
+              <h1 className="text-2xl font-bold sm:text-4xl md:text-5xl lg:text-6xl">
                 Hello,
               </h1>
-              <p className="text-3xl font-bold sm:text-4xl md:text-5xl lg:text-6xl">
+              <p className="text-2xl font-bold sm:text-4xl md:text-5xl lg:text-6xl">
                 I'm <span className="text-yellow-500">Ahmad</span>
               </p>
-              <p className="text-3xl font-bold sm:text-4xl md:text-5xl lg:text-6xl">
+              <p className="text-2xl font-bold sm:text-4xl md:text-5xl lg:text-6xl">
                 Front End Software
               </p>
-              <p className="text-3xl font-bold sm:text-4xl md:text-5xl lg:text-6xl">
+              <p className="text-2xl font-bold sm:text-4xl md:text-5xl lg:text-6xl">
                 Engineer
               </p>
 
@@ -69,7 +63,7 @@ const Home = () => {
               </p>
 
               {/* Social buttons */}
-              <div className="mt-8 flex w-full justify-center space-x-4 sm:w-[18rem] lg:justify-start">
+              <div className="mt-8 flex w-full justify-center space-x-4 sm:w-[18rem] md:justify-start lg:justify-start">
                 <button className="p-2 font-bold rounded-md">Github</button>
                 <button className="p-2 font-bold rounded-md">LinkedIn</button>
                 <a
@@ -82,7 +76,7 @@ const Home = () => {
                 </a>
               </div>
             </div>
-            <div className="flex flex-col lg:mr-[10rem] lg:mt-[4rem]">
+            <div className="flex flex-col items-center mt-5 md:mr-16 md:mt-16 lg:mr-20 lg:mt-20">
               {/* Decagon outline container */}
               <div className="decagon-container relative mx-auto h-48 w-48 sm:h-60 sm:w-60 md:h-72 md:w-72 lg:h-[26rem] lg:w-[26rem]">
                 {/* Outline decagon */}
@@ -104,11 +98,6 @@ const Home = () => {
       </div>
 
       {/* Skills, Projects, and Contact sections */}
-      <div
-        className={`${
-          theme === "dark" ? "bg-black text-white" : "bg-white text-black"
-        } z-10 h-[8rem]`}
-      />
       <Skills ref={skillsRef} />
       <Projects ref={projectsRef} />
       <ScrollProgressIndicator
