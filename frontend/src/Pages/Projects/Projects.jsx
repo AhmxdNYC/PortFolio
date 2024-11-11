@@ -44,7 +44,7 @@ const Projects = forwardRef((props, ref) => {
   return (
     <div
       ref={ref}
-      className={`${theme === "dark" ? "z-10 bg-black text-white " : "bg-white text-black"} w-full`}
+      className={`${theme === "dark" ? "z-10 bg-black text-white" : "bg-white text-black"} w-full`}
     >
       <style>
         {`
@@ -59,7 +59,7 @@ const Projects = forwardRef((props, ref) => {
           }
           .projects-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
             padding: 2rem;
             max-width: 1200px;
@@ -78,7 +78,7 @@ const Projects = forwardRef((props, ref) => {
               ref={projectRefs[index]}
               project={project}
               theme={theme}
-              className={`project-panel ${index % 2 === 0 ? "h-80" : "h-96"}`}
+              className={`project-panel ${index % 2 === 0 ? "h-80" : "h-96"} ${index % 3 === 0 ? "col-span-2" : ""}`}
             />
           ))}
         </div>
