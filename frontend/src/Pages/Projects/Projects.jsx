@@ -44,7 +44,7 @@ const Projects = forwardRef((props, ref) => {
   return (
     <div
       ref={ref}
-      className={`${theme === "dark" ? "bg-black text-white" : "bg-white text-black"} w-full`}
+      className={`${theme === "dark" ? "z-10 bg-black text-white " : "bg-white text-black"} w-full`}
     >
       <style>
         {`
@@ -78,7 +78,7 @@ const Projects = forwardRef((props, ref) => {
               ref={projectRefs[index]}
               project={project}
               theme={theme}
-              className="project-panel"
+              className={`project-panel ${index % 2 === 0 ? "h-80" : "h-96"}`}
             />
           ))}
         </div>
