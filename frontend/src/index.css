@@ -43,3 +43,78 @@ textarea {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+/* Decagon container for centering both elements */
+.decagon-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Background decagon for outline */
+.decagon-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 102%; /* Slightly larger to create outline effect */
+  height: 102%; /* Slightly larger to create outline effect */
+  transform: translate(-1%, -1%); /* Center it perfectly */
+  background-color: #f59e0b; /* Outline color equivalent to tailwind yellow-500 */
+  -webkit-clip-path: polygon(
+    50% 0%,
+    80% 10%,
+    100% 35%,
+    100% 65%,
+    80% 90%,
+    50% 100%,
+    20% 90%,
+    0 65%,
+    0 35%,
+    20% 10%
+  );
+  clip-path: polygon(
+    50% 0%,
+    80% 10%,
+    100% 35%,
+    100% 65%,
+    80% 90%,
+    50% 100%,
+    20% 90%,
+    0 65%,
+    0 35%,
+    20% 10%
+  );
+  z-index: 5; /* Place behind main image */
+}
+
+/* Main decagon with profile image */
+.decagon {
+  position: relative;
+  width: 100%; /* Match the container dimensions */
+  height: 100%; /* Match the container dimensions */
+  -webkit-clip-path: polygon(
+    50% 0%,
+    80% 10%,
+    100% 35%,
+    100% 65%,
+    80% 90%,
+    50% 100%,
+    20% 90%,
+    0 65%,
+    0 35%,
+    20% 10%
+  );
+  clip-path: polygon(
+    50% 0%,
+    80% 10%,
+    100% 35%,
+    100% 65%,
+    80% 90%,
+    50% 100%,
+    20% 90%,
+    0 65%,
+    0 35%,
+    20% 10%
+  );
+  z-index: 10; /* Place above background */
+}
