@@ -26,14 +26,12 @@ const Projects = forwardRef((props, ref) => {
       { threshold: 0.1 },
     );
 
-    // Observe each ref
     projectRefs.forEach((ref) => {
       if (ref.current) {
         observer.observe(ref.current);
       }
     });
 
-    // Cleanup
     return () => {
       projectRefs.forEach((ref) => {
         if (ref.current) {
@@ -46,54 +44,50 @@ const Projects = forwardRef((props, ref) => {
   return (
     <div
       ref={ref}
-      className={`${
-        theme === "dark" ? "bg-black text-white" : "bg-white text-black"
-      } z-10 w-full`}
+      className={`${theme === "dark" ? "z-10 bg-black text-white" : "bg-white text-black"} w-full`}
     >
       <style>
         {`
-        .hidden-display {
-          filter: blur(5px);
-          opacity: 0;
-          transform: translateX(-100%);
-          transition: all 1s;
-        }
-        .show {
-          opacity: 1;
-          filter: blur(0);
-          transform: translateX(0);
-        }
-        @media(prefers-reduced-motion) {
           .hidden-display {
-            transition: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
           }
-        }
+          .show {
+            opacity: 1;
+            transform: translateY(0);
+          }
+          .projects-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: auto;
+          }
+          @media (max-width: 768px) {
+            .projects-container {
+              grid-template-columns: 1fr;
+            }
+          }
         `}
       </style>
-      <div
-        data-name="When hover over breaks boundaries pad"
-        className="pt-20 pb-3 ml-4"
-      >
-        <Element name="projects">
-          <h2 className="mb-8 text-4xl font-bold text-center text-yellow-500 sm:text-5xl lg:text-6xl">
-            Projects
-          </h2>
-          {/* Projects Container */}
-          <div
-            data-name="Projects-container"
-            className=" ml-[13%] flex h-auto w-[85rem] flex-wrap gap-5"
-          >
-            {projectsData.map((project, index) => (
-              <Project
-                key={project.id}
-                ref={projectRefs[index]}
-                project={project}
-                theme={theme}
-              />
-            ))}
-          </div>
-        </Element>
-      </div>
+      <Element name="projects">
+        <h2 className="mb-8 text-4xl font-bold text-center text-yellow-500 sm:text-5xl lg:text-6xl">
+          Projects
+        </h2>
+        <div className="projects-container">
+          {projectsData.map((project, index) => (
+            <Project
+              key={project.id}
+              ref={projectRefs[index]}
+              project={project}
+              theme={theme}
+              className="project-panel"
+            />
+          ))}
+        </div>
+      </Element>
     </div>
   );
 });

@@ -1,15 +1,14 @@
 import React, { forwardRef } from "react";
 import { Link } from "react-router-dom";
 
-const Project = forwardRef(({ project, theme }, ref) => (
+const Project = forwardRef(({ project, theme, className }, ref) => (
   <div
     ref={ref}
-    className="flex w-full flex-col rounded-md border border-gray-700 p-4 shadow-md transition-all duration-300 hover:scale-[1.05] hover:shadow-lg md:w-1/3 lg:w-1/4"
+    className={`${className} flex transform flex-col rounded-lg border border-gray-700 bg-neutral-800 p-4 shadow-md transition-transform duration-300 hover:scale-[1.03] hover:shadow-lg`}
   >
-    {/* Project Image */}
     <Link
       to={project.href}
-      className="w-full h-48 overflow-hidden rounded-t-md"
+      className="relative w-full h-48 overflow-hidden rounded-md"
     >
       <img
         className="object-cover w-full h-full transition-transform duration-300 hover:scale-110"
@@ -23,19 +22,18 @@ const Project = forwardRef(({ project, theme }, ref) => (
     </Link>
 
     {/* Project Details */}
-    <div className="p-4 space-y-2 rounded-b-md bg-neutral-800">
-      {/* Project Title and Description */}
-      <div className="text-center">
-        <h3 className="text-xl font-semibold text-gray-100">{project.name}</h3>
-        <p className="text-sm text-gray-400">cool project description</p>
-      </div>
+    <div className="p-4 space-y-2">
+      <h3 className="text-lg font-semibold text-center text-gray-100">
+        {project.name}
+      </h3>
+      <p className="text-sm text-center text-gray-400">{project.description}</p>
 
       {/* Tech Stack */}
       <div className="flex flex-wrap justify-center gap-2 pt-3 border-t border-gray-700">
         {project.techs.map((tech, index) => (
           <span
             key={index}
-            className="px-2 py-1 text-xs font-semibold text-gray-200 bg-gray-700 rounded-md"
+            className="px-2 py-1 text-xs font-semibold text-gray-200 bg-gray-700 rounded"
           >
             {tech}
           </span>
@@ -44,7 +42,6 @@ const Project = forwardRef(({ project, theme }, ref) => (
 
       {/* Action Buttons */}
       <div className="flex items-center justify-around mt-4">
-        {/* Demo Button */}
         <div className="relative group">
           <img
             src={
@@ -53,14 +50,12 @@ const Project = forwardRef(({ project, theme }, ref) => (
                 : project.demoImgSrc
             }
             alt="Demo preview"
-            className="object-contain w-12 h-12 rounded-md opacity-80 group-hover:opacity-100"
+            className="object-contain w-12 h-12 rounded opacity-80 group-hover:opacity-100"
           />
           <button className="absolute inset-0 flex items-center justify-center text-xs font-semibold text-gray-100 bg-black bg-opacity-50 rounded-md opacity-0 group-hover:opacity-100">
             Demo
           </button>
         </div>
-
-        {/* Project Logo */}
         <div className="flex items-center">
           <img
             src={
@@ -72,8 +67,6 @@ const Project = forwardRef(({ project, theme }, ref) => (
             className="object-contain w-10 h-10"
           />
         </div>
-
-        {/* GitHub Repo Button */}
         <div className="relative group">
           <svg
             xmlns="http://www.w3.org/2000/svg"
