@@ -1,9 +1,9 @@
 import ParticlesBackground from "../../components/ParticlesBackground.jsx";
-import Navbar from "../../components/Navbar.jsx";
-import Skills from "../../components/Skills.jsx";
+import Navbar from "../Nav/Navbar.jsx";
+import Skills from "../Skills/Skills.jsx";
 import { useRef } from "react";
-import Projects from "../../components/Projects.jsx";
-import Contact from "../../components/Contact.jsx";
+import Projects from "../Projects/Projects.jsx";
+import Contact from "../Contact/Contact.jsx";
 import { useTheme } from "../../components/ModeContext.jsx";
 import ScrollProgressIndicator from "../../components/CustomScroll.jsx";
 
@@ -41,7 +41,7 @@ const Home = () => {
                 I'm <span className="text-yellow-500">Ahmad</span>
               </p>
               <p className="text-2xl font-bold sm:text-4xl md:text-5xl lg:text-6xl">
-                Front End Software
+                Full Stack Software
               </p>
               <p className="text-2xl font-bold sm:text-4xl md:text-5xl lg:text-6xl">
                 Engineer

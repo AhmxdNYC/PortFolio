@@ -1,8 +1,8 @@
 import React from "react";
 import Home from "./Pages/Home/HomePage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Projects from "./components/Projects";
-import ProjectDetail from "./Pages/Project/ProjectDetails";
+import Projects from "./Pages/Projects/Projects";
+// import ProjectDetail from "./Pages/Project/ProjectDetails";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
-          <Route path="/projects/:projectId" element={<ProjectDetail />} />
+          {/* <Route path="/projects/:projectId" element={<ProjectDetail />} /> */}
         </Routes>
       </Router>
     </div>

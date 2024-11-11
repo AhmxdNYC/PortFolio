@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { Element } from "react-scroll";
-import About from "./About";
-import { useTheme } from "./ModeContext";
+import About from "../About/About";
+import { useTheme } from "../../components/ModeContext";
 import { useState } from "react";
 import { forwardRef } from "react";
 const Contact = forwardRef((props, ref) => {
@@ -53,34 +53,35 @@ const Contact = forwardRef((props, ref) => {
       ref={ref}
       className={`${
         theme === "dark" ? "bg-black text-white" : "bg-white text-black"
-      } z-10 min-h-screen w-full pb-[5rem] `}
+      } z-10  w-full pb-[3rem] `}
     >
       <About />
 
       <Element ref={contact} name="Contact">
-        <div className="ml-4 pt-20">
-          <h2 className="mb-8 ml-[16rem] text-6xl text-yellow-500">Contact</h2>
+        <div className="px-4 ">
+          <h2 className="mb-8 text-center text-4xl text-yellow-500 md:text-6xl">
+            Contact
+          </h2>
           {/* Contact Container */}
-          <div data-name="Contact-container" className="">
+          <div data-name="Contact-container" className="flex justify-center">
             <form
               onSubmit={handleSubmit}
               className={`${
                 theme === "dark" ? "bg-black text-white" : "bg-white text-black"
-              } ml-[auto] flex h-auto w-[70rem] flex-col gap-3 `}
+              } flex w-full max-w-2xl flex-col gap-3`}
               action="submit"
             >
               <label htmlFor="name-input">Name</label>
               <input
                 onChange={(e) => setName(e.target.value)}
                 type="text"
-                name=""
                 value={name}
                 id="name-input"
                 className={`${
                   theme === "dark"
                     ? "border border-[#2c2c2c] bg-black"
                     : "border border-[#dcdcdc]"
-                } min-h-[2rem] w-[35rem] rounded-md `}
+                } min-h-[2rem] w-full rounded-md `}
               />
               <label htmlFor="email-input" className="mt-5">
                 Email
@@ -88,14 +89,13 @@ const Contact = forwardRef((props, ref) => {
               <input
                 onChange={(e) => setEmail(e.target.value)}
                 type="text"
-                name=""
                 value={email}
                 id="email-input"
                 className={`${
                   theme === "dark"
                     ? "border border-[#2c2c2c] bg-black"
                     : "border border-[#dcdcdc]"
-                } min-h-[2rem] w-[35rem] rounded-md `}
+                } min-h-[2rem] w-full rounded-md `}
               />
               <label htmlFor="message-input" className="mt-5">
                 Message
@@ -109,13 +109,13 @@ const Contact = forwardRef((props, ref) => {
                   theme === "dark"
                     ? "border border-[#2c2c2c] bg-black"
                     : "border border-[#dcdcdc]"
-                } min-h-[8rem] w-[35rem] rounded-md p-1`}
+                } min-h-[8rem] w-full rounded-md p-1`}
               >
                 Message
               </textarea>
               <button
                 type="submit"
-                className="text-md mr-auto mt-5 rounded-md bg-yellow-500 p-2 font-bold"
+                className="text-md mt-5 rounded-md bg-yellow-500 p-2 font-bold"
               >
                 Submit
               </button>
@@ -126,5 +126,4 @@ const Contact = forwardRef((props, ref) => {
     </div>
   );
 });
-
 export default Contact;

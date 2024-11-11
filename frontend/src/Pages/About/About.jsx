@@ -1,20 +1,22 @@
 import { Element } from "react-scroll";
-import { useTheme } from "./ModeContext";
+import { useTheme } from "../../components/ModeContext";
 const About = () => {
   const { theme } = useTheme();
   return (
     <div
       className={`${
         theme === "dark" ? "bg-black text-white" : "bg-white text-black"
-      } z-10 min-h-screen w-full `}
+      } z-10  w-full `}
     >
       <Element name="About">
         <div className="ml-4 pt-20">
-          <h2 className="mb-8 ml-[16rem] text-6xl text-yellow-500">About</h2>
+          <h2 className="mb-8 text-center text-4xl text-yellow-500 md:text-6xl">
+            About
+          </h2>
           {/* About Container */}
           <div
             data-name="About-container"
-            className="ml-auto flex h-auto w-[70rem] flex-col gap-5 "
+            className="mx-auto flex h-auto w-full max-w-4xl flex-col gap-5 px-4 md:px-0"
           >
             <li className="list-none">Place</li>
             <li className="list-none italic">Present</li>
@@ -27,5 +29,4 @@ const About = () => {
     </div>
   );
 };
-
 export default About;
