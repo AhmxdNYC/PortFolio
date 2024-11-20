@@ -53,13 +53,13 @@ const Contact = forwardRef((props, ref) => {
       ref={ref}
       className={`${
         theme === "dark" ? "bg-black text-white" : "bg-white text-black"
-      } z-10  w-full pb-[3rem] `}
+      } w-full`}
     >
       <About />
 
       <Element ref={contact} name="Contact">
-        <div className="px-4 ">
-          <h2 className="mb-8 text-center text-4xl text-yellow-500 md:text-6xl">
+        <div className="z-10 px-4 pb-[3rem]">
+          <h2 className="mb-8 text-4xl text-center text-yellow-500 md:text-6xl">
             Contact
           </h2>
           {/* Contact Container */}
@@ -115,7 +115,7 @@ const Contact = forwardRef((props, ref) => {
               </textarea>
               <button
                 type="submit"
-                className="text-md mt-5 rounded-md bg-yellow-500 p-2 font-bold"
+                className="p-2 mt-5 font-bold bg-yellow-500 rounded-md text-md"
               >
                 Submit
               </button>

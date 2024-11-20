@@ -11,6 +11,8 @@ const ParticlesBackground = () => {
   useEffect(() => {
     initParticlesEngine(async (engine) => {
       await loadSlim(engine);
+
+      engine.options.fullScreen.enable = false;
     });
   }, []);
 
@@ -20,17 +22,17 @@ const ParticlesBackground = () => {
   }, []);
 
   // Listen for clicks to pause/play
-  useEffect(() => {
-    const handleClick = () => {
-      if (particlesInstanceRef.current) {
-        const instance = particlesInstanceRef.current;
-        instance.isPaused() ? instance.play() : instance.pause();
-      }
-    };
+  // useEffect(() => {
+  //   const handleClick = () => {
+  //     if (particlesInstanceRef.current) {
+  //       const instance = particlesInstanceRef.current;
+  //       instance.isPaused() ? instance.play() : instance.pause();
+  //     }
+  //   };
 
-    document.addEventListener("click", handleClick);
-    return () => document.removeEventListener("click", handleClick);
-  }, []);
+  //   document.addEventListener("click", handleClick);
+  //   return () => document.removeEventListener("click", handleClick);
+  // }, []);
 
   const options = useMemo(
     () => ({
@@ -39,13 +41,17 @@ const ParticlesBackground = () => {
           value: theme === "dark" ? "#000000" : "#ffffff",
         },
       },
+      fullScreen: {
+        enable: false,
+        zIndex: 0,
+      },
       fpsLimit: 240,
       interactivity: {
         events: {
-          onClick: {
-            enable: true,
-            mode: "pause",
-          },
+          // onClick: {
+          //   enable: true,
+          //   mode: "pause",
+          // },
           onHover: {
             enable: true,
             mode: "repulse",
@@ -66,6 +72,7 @@ const ParticlesBackground = () => {
           value: theme === "dark" ? "#ffffff" : "#000000",
         },
         links: {
+          shape: "square",
           color: theme === "dark" ? "#ffffff" : "#000000",
           distance: 200,
           enable: true,
@@ -105,19 +112,14 @@ const ParticlesBackground = () => {
   );
 
   return (
-    <Particles
-      key={theme}
-      id="tsparticles"
-      init={particlesInit}
-      options={options}
-      style={{
-        position: "absolute",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
-      }}
-    />
+    <div className="container">
+      <Particles
+        key={theme}
+        id="tsparticles"
+        init={particlesInit}
+        options={options}
+      />
+    </div>
   );
 };
 

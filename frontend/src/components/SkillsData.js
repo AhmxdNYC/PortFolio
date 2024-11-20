@@ -12,13 +12,6 @@ const skillsData = [
     title: "React",
   },
   {
-    href: "",
-    imgSrc: (theme) =>
-      theme === "dark" ? "/coming-soon.png" : "/coming-soon-rev.png",
-    imgAlt: "Python logo",
-    title: "Python",
-  },
-  {
     href: "https://git-scm.com/",
     imgSrc: "/git.svg",
     imgAlt: "Git logo",
@@ -49,6 +42,48 @@ const skillsData = [
       theme === "dark" ? "/expressjs-light.svg" : "/expressjs.svg",
     imgAlt: "Express.js logo",
     title: "Express.js",
+  },
+  {
+    href: "https://www.python.org/",
+    imgSrc: "./python-logo.svg",
+    imgAlt: "Python logo",
+    title: "Python",
+  },
+  {
+    href: "https://www.flask.org/",
+    imgSrc: "/flask-logo.svg",
+    imgAlt: "flask logo",
+    title: "Flask",
+  },
+  {
+    href: "https://graphql.org/",
+    imgSrc: "./graphQL-logo.svg",
+    imgAlt: "GraphQL Logo",
+    title: "GraphQL",
+  },
+  {
+    href: "https://nextjs.org/",
+    imgSrc: "./nextjs-logo.svg",
+    imgAlt: "NextJS Logo",
+    title: "NextJS",
+  },
+  {
+    href: "",
+    imgSrc: "./typescript.svg",
+    imgAlt: "Typescript Logo",
+    title: "Typescript",
+  },
+  {
+    href: "",
+    imgSrc: "/prisma-3.svg",
+    imgAlt: "Prisma Logo",
+    title: "Prisma",
+  },
+  {
+    href: "",
+    imgSrc: "./bash-logo.svg",
+    imgAlt: "Bash Logo",
+    title: "Bash",
   },
 ];
 

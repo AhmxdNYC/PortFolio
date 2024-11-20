@@ -45,7 +45,7 @@ const Skills = forwardRef((props, ref) => {
       ref={ref}
       className={`${
         theme === "dark" ? "bg-black text-white" : "bg-white text-black"
-      } z-10 h-auto  w-full`}
+      } z-10 h-auto w-full pt-[10rem]`}
     >
       <style>
         {`
@@ -76,7 +76,7 @@ const Skills = forwardRef((props, ref) => {
           {/* Skills Container */}
           <div
             data-name="skills-container"
-            className="grid w-full max-w-screen-lg grid-cols-4 gap-5 mx-auto"
+            className="grid w-full max-w-screen-lg grid-cols-4 gap-5 pb-4 mx-auto"
           >
             {skillsData.map((skill, index) => (
               <Skill
